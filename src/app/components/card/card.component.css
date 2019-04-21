@@ -1,0 +1,41 @@
+.card-columns {
+    width: 100%;
+    height: auto;    
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex-direction: row;    
+}
+  .card {
+    width: 200px;
+    height: 100%;
+    margin: 25px auto;
+    border: 1px solid #ccc;
+    background: white;
+    flex-wrap: wrap;
+}
+.card:hover{
+    filter: brightness(1.2);
+}
+  .card img {
+    max-width: 100%;
+}
+.card .card-body{
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+}
+.card .card-body h5{
+    font-weight: bold;
+    margin-top: 12px;
+    font-size: 15px;
+    text-align: center;
+}
+.card .card-body p{
+    text-align: center;
+    background: black;
+    color: white;
+}
+  .card .card-body {
+    padding: 0 5px 5px;
+}
+ 

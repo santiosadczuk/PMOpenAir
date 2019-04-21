@@ -1,0 +1,11 @@
+<div class="search-page">
+
+  <div class="search">
+    <input #termino (keyup)="buscar(termino.value)" type="text" placeholder="Search artist">
+  </div>
+
+  <app-loading *ngIf="loading"></app-loading>
+
+  <app-card *ngIf="!loading" [items]="artists"></app-card>
+
+</div>

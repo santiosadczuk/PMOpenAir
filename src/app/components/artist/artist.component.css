@@ -1,0 +1,20 @@
+.artist-card{
+    display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+    align-items: center;
+    margin: 40px;
+    background: #424949;
+    opacity: 0,9;
+    padding: 5px;
+}
+
+.artist-card .image img {
+    width: 100px;
+    border-radius: 50%;
+    border: 4px solid #ddd;
+}
+
+.artist-card .name h3{
+    color: white;
+}
