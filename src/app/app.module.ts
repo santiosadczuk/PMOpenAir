@@ -17,6 +17,7 @@ import { ROUTES } from './app.routes';
 import { NoimagePipe } from './pipes/noimage.pipe';
 import { CardComponent } from './components/card/card.component';
 import { LoadingComponent } from './components/shared/loading/loading.component';
+import { AlbumComponent } from './components/album/album.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
     FooterComponent,
     NoimagePipe,
     CardComponent,
-    LoadingComponent
+    LoadingComponent,
+    AlbumComponent
   ],
   imports: [
     BrowserModule,
