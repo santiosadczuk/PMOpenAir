@@ -4,11 +4,12 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    flex-direction: row;
+    flex-direction: column;
+    align-content: center;
 }
 
 .search {
-    width: 250px;
+    width: 350px;
 }
 
 .search input {
@@ -17,4 +18,5 @@
     border-radius: 5px;
     text-align: center;
 }
+
 
