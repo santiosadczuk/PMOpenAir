@@ -37,7 +37,7 @@ export class AlbumComponent implements OnInit {
 
     this.spotify.getAlbumTracks( id )
       .subscribe( albumTracks => {
-      
+      console.log(albumTracks);
       this.albumTracks = albumTracks;
       
     })

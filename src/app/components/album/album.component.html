@@ -28,9 +28,9 @@
       </thead>
 
       <tbody>
-        <tr *ngFor= 'let track of albumTracks'>
+        <tr *ngFor= "let track of albumTracks">
           <td>{{ track.name }}</td>
-          <td></td>
+          <td>{{ track.duration_ms }}</td>
           <td>
             <audio [src]="track.preview_url" controls></audio>
           </td>
