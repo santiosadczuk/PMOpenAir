@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SpotifyService } from 'src/app/services/spotify.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-artist',
@@ -16,7 +17,8 @@ export class ArtistComponent implements OnInit {
   loadingArtist: boolean;
 
   constructor(private router: ActivatedRoute,
-              private spotify: SpotifyService ) {
+              private spotify: SpotifyService,
+              private _router: Router ) {
 
     this.loadingArtist = true;
 
@@ -49,9 +51,20 @@ export class ArtistComponent implements OnInit {
 
     this.spotify.getAlbums( id )
       .subscribe( albums => {
-        console.log(albums);
         this.albums = albums;
       })
+  }
+  lookAlbum( album: any ){
+
+    let albumId;
+
+    if( album.type === 'album'){
+      albumId = album.id;
+    }else{
+      albumId = album.album[0].id;
+    }
+
+    this._router.navigate(['/album', albumId]); 
   }
 
   ngOnInit() {

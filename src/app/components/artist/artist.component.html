@@ -65,7 +65,7 @@
         <tbody>
           <tr *ngFor= 'let album of albums'>
             <td>
-              <img [src]="album.images | noimage">
+              <img (click)="lookAlbum( album )" [src]="album.images | noimage" class="puntero">
             </td>
             <td>{{ album.name }}</td>
             <td>{{ album.total_tracks }}</td>

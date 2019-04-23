@@ -15,7 +15,7 @@ export class SpotifyService {
     const url = `https://api.spotify.com/v1/${ query }`;
 
     const headers = new HttpHeaders({
-      'Authorization': 'Bearer BQAOdpnTivkJhmxyKKuL6sTCWE6eMZV53Bi9bvK1HFAU8yIKjfFqI_LwxX6Nft2rIflHoLzEZrIxMNjgID4'
+      'Authorization': 'Bearer BQCDE1HynR0aBw_JVpn6b01zYhtkifcgFgHDl-jE87XMPfeoR4ItisxAHRp2cOn6OSMxG92oOHlUYatKhLI'
     });
 
     return this.http.get( url, {headers});
@@ -51,6 +51,18 @@ export class SpotifyService {
   getAlbums(id: string){
 
     return this.getQuery(`artists/${ id }/albums`)
+      .pipe( map( data => data['items']));
+      
+  }
+
+  getAlbum( id:string ){
+    
+    return this.getQuery(`albums/${ id }`);
+  }
+
+  getAlbumTracks(id: string){
+
+    return this.getQuery(`albums/${ id }/tracks`)
       .pipe( map( data => data['items']));
       
   }

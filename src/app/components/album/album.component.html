@@ -1,3 +1,45 @@
-<p>
-  album works!
-</p>
+<div class="album-card animated fadeIn">
+  
+  <div class="image">
+    <a><img [src]="album.images | noimage" alt=""></a> 
+  </div>
+
+  <div class="name">
+    <h3>{{ album.name }}</h3>
+  </div>
+
+  <div class="button-back">
+    <button routerLink="/search">Back</button>
+  </div>
+
+</div>
+
+<div class="album">
+    
+  <table class="table">
+      
+      <thead>
+        <tr>
+          <th>Cancion</th>
+          <th>Duracion</th>
+          <th>Vista Previa</th>
+          <th>Agregar a Favoritos</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor= 'let track of albumTracks'>
+          <td>{{ track.name }}</td>
+          <td></td>
+          <td>
+            <audio [src]="track.preview_url" controls></audio>
+          </td>
+          <td>
+            <input type="checkbox">
+          </td>
+        </tr>
+      </tbody>
+
+  </table>
+
+</div>
