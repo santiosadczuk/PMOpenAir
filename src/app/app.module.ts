@@ -9,15 +9,15 @@ import { SearchComponent } from './components/search/search.component';
 import { ArtistComponent } from './components/artist/artist.component';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
+import { CardComponent } from './components/card/card.component';
+import { LoadingComponent } from './components/shared/loading/loading.component';
+import { AlbumComponent } from './components/album/album.component';
 
 //Ruotes
 import { ROUTES } from './app.routes';
 
 //Pipes
 import { NoimagePipe } from './pipes/noimage.pipe';
-import { CardComponent } from './components/card/card.component';
-import { LoadingComponent } from './components/shared/loading/loading.component';
-import { AlbumComponent } from './components/album/album.component';
 
 @NgModule({
   declarations: [

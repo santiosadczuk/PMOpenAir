@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SpotifyService } from 'src/app/services/spotify.service';
 import { Router } from '@angular/router';
+import { FavoritesService } from 'src/app/services/favorites.service';
 
 @Component({
   selector: 'app-album',
@@ -15,6 +16,7 @@ export class AlbumComponent implements OnInit {
 
   constructor(private router: ActivatedRoute,
               private spotify: SpotifyService,
+              private favorites: FavoritesService,
               private _router: Router) {
 
                 this.router.params.subscribe( params => {
@@ -37,10 +39,15 @@ export class AlbumComponent implements OnInit {
 
     this.spotify.getAlbumTracks( id )
       .subscribe( albumTracks => {
-      console.log(albumTracks);
+
       this.albumTracks = albumTracks;
       
     })
+  }
+
+  addTrackToFavs( id: string){    
+    this.favorites.addFavorite(id);
+    console.log(localStorage);
   }
   
 

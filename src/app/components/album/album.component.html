@@ -35,7 +35,7 @@
             <audio [src]="track.preview_url" controls></audio>
           </td>
           <td>
-            <input type="checkbox">
+            <button type="button" (click)="addTrackToFavs( track.id )">Agregar</button>
           </td>
         </tr>
       </tbody>
