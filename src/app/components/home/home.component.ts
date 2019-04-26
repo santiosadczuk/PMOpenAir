@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
 
     this.loading = true;
     
-    
+    console.log(favorites.favorites);
 
     this.spotify.getNewReleases()
       .subscribe( (data: any) => {

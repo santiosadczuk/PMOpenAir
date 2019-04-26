@@ -47,7 +47,6 @@ export class AlbumComponent implements OnInit {
 
   addTrackToFavs( id: string){    
     this.favorites.addFavorite(id);
-    console.log(localStorage);
   }
   
 
