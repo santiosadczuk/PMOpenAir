@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SpotifyService } from 'src/app/services/spotify.service';
+import { FavoritesService } from 'src/app/services/favorites.service';
 
 @Component({
   selector: 'app-search',
@@ -8,10 +9,25 @@ import { SpotifyService } from 'src/app/services/spotify.service';
 })
 export class SearchComponent implements OnInit {
 
+  favs: any[] = [];
   artists: any[] = [];
   loading: boolean;
 
-  constructor(private spotify: SpotifyService) { }
+  constructor(private spotify: SpotifyService,
+              private favoritesService: FavoritesService) {
+                
+                
+              }
+  
+  getTrack( ids: string){
+
+    
+    this.spotify.getTracks(this.favoritesService.favorites)
+      .subscribe( track => {
+        this.favs = track;        
+      });
+
+ } 
 
   buscar(termino: string){
     this.loading= true;

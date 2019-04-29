@@ -1,5 +1,11 @@
 <div class="search-page">
 
+  <div class="title">
+    <h4>Welcome to</h4>
+    <h1>PM Open Air</h1>
+    <p>Search your favorite song over Spotify, just write an Artist name in the following search box and enojy !</p>
+  </div>
+
   <div class="search">
     <input #termino (keyup)="buscar(termino.value)" type="text" placeholder="Search artist">
   </div>
@@ -7,5 +13,11 @@
   <app-loading *ngIf="loading"></app-loading>
 
   <app-card *ngIf="!loading" [items]="artists"></app-card>
+
+  <div class="favorites">
+    
+    <h2>Favorites</h2>
+
+  </div>
 
 </div>

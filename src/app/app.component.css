@@ -1,5 +1,13 @@
-.container{
-    padding-top: 50px;
-    padding-left: 10%;
-    padding-right: 10%;
-}
+.main-container {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: #222326;
+  }
+
+  .container {
+    padding: 65px 0;
+    margin-bottom: 80px;
+    height: 100%;
+    width: 100%;
+  }

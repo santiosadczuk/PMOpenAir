@@ -1,23 +1,22 @@
 <!-- Header -->
-<header id="header">    
+<header id="header">  
   <nav class="menu">
 
       <div class="logo">
-        <a href="#"><img src="./assets/img/logo.jpg" alt=""></a>        
+        <a routerLink="home"><img src="./assets/img/logo.jpg" alt=""></a>        
       </div>
 
-      <div class="title">
-        <p>PM Open Air</p>
+      <div class="icon">
+        <i class="fa fa-search"></i>        
       </div>
 
-      <ul class="enlaces">
-          <li>
-            <a routerLink="home">Home</a>
-          </li>
-          <li>
-            <a routerLink="search">Search</a>
-          </li>                    
-      </ul>
+  </nav>
+
+  <nav class="search">
+
+    <div class="search-input">
+        <input name="search" type="text" placeholder="Search artist" />
+    </div>
 
   </nav>
 </header>

@@ -31,7 +31,4 @@ export class FavoritesService {
     }
   }
 
-  getFavoriteFromId (id: string) {
-    return this.favorites.find((favId) => favId === id);
-  }
 }

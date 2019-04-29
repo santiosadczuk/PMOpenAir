@@ -1,4 +1,4 @@
-<div class="card-columns animated fadeIn">
+<div class="cards-columns animated fadeIn">
 
     <div (click)="lookArtist( item )" *ngFor="let item of items" class="card puntero">
   
@@ -6,9 +6,6 @@
   
       <div class="card-body">
         <h5 class="card-title">{{item.name}}</h5>
-        <p class="card-text">
-          <span *ngFor="let artist of item.artists">"{{artist.name}}" </span>
-        </p>
       </div>
   
     </div>
