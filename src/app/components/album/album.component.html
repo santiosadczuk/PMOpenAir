@@ -15,7 +15,8 @@
 </div>
 
 <div class="album">
-    
+  
+  <h3>Tracks</h3>
   <table class="table">
       
       <thead>
@@ -35,7 +36,16 @@
             <audio [src]="track.preview_url" controls></audio>
           </td>
           <td>
-            <button type="button" (click)="addTrackToFavs( track.id )">Agregar</button>
+
+            <i 
+              *ngIf="fav.includes( track.id ); else finish"
+              
+              class="fas fa-star"
+            ></i>
+            <ng-template #finish>
+                <i (click)="addTrackToFavs( track.id )" class="far fa-star"></i>
+            </ng-template>
+            
           </td>
         </tr>
       </tbody>

@@ -14,15 +14,20 @@ export class AlbumComponent implements OnInit {
   album: any = {};
   albumTracks: any = {};
 
+  fav: any[] = [];
+
   constructor(private router: ActivatedRoute,
               private spotify: SpotifyService,
-              private favorites: FavoritesService,
+              private favoritesService: FavoritesService,
               private _router: Router) {
 
                 this.router.params.subscribe( params => {
                   this.getAlbum( params ['id']);
                   this.getAlbumTracks( params ['id']);
                 })
+                
+                this.loadStorage();
+                
               }
 
   getAlbum( id: string ){
@@ -46,11 +51,20 @@ export class AlbumComponent implements OnInit {
   }
 
   addTrackToFavs( id: string){    
-    this.favorites.addFavorite(id);
+    this.favoritesService.addFavorite(id);
+    this.fav.push(id);
   }
-  
+
+  loadStorage() {
+    if (localStorage.getItem('favorites')) {
+      this.fav = JSON.parse(localStorage.getItem('favorites'));
+    } else {
+      this.fav = [];
+    }
+  }
 
   ngOnInit() {
+    
   }
 
 }

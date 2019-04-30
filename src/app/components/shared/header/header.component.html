@@ -7,15 +7,24 @@
       </div>
 
       <div class="icon">
-        <i class="fa fa-search"></i>        
+        <i (click)="mostrar()" class="fa fa-search"></i>        
       </div>
 
   </nav>
 
-  <nav class="search">
+  <nav id="search" class="search">
 
     <div class="search-input">
-        <input name="search" type="text" placeholder="Search artist" />
+        <input id="input" #termino (keyup)="buscar(termino.value)" name="search" value="" type="text" placeholder="Search artist" />
+        
+        <app-loading *ngIf="loading"></app-loading>
+
+        <div id="list" class="list" *ngIf="!loading">
+            <ul class="list-items" *ngFor="let artist of artists">
+                <li (click)="lookArtist( artist.id )">{{ artist.name }}</li>
+            </ul>
+        </div>
+        
     </div>
 
   </nav>

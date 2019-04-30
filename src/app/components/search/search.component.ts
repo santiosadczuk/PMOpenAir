@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+
 import { SpotifyService } from 'src/app/services/spotify.service';
 import { FavoritesService } from 'src/app/services/favorites.service';
+
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-search',
@@ -14,9 +19,12 @@ export class SearchComponent implements OnInit {
   loading: boolean;
 
   constructor(private spotify: SpotifyService,
-              private favoritesService: FavoritesService) {
+              private favoritesService: FavoritesService,
+              private router: ActivatedRoute,) {
                 
-                
+                this.router.params.subscribe( params => {
+                  this.getTrack( params ['ids']);
+                  })
               }
   
   getTrack( ids: string){
@@ -24,6 +32,7 @@ export class SearchComponent implements OnInit {
     
     this.spotify.getTracks(this.favoritesService.favorites)
       .subscribe( track => {
+        
         this.favs = track;        
       });
 
@@ -37,6 +46,10 @@ export class SearchComponent implements OnInit {
         this.loading= false;
       })
     
+  }
+
+  removeTrackToFavs( id: string){    
+    this.favoritesService.removeFavorite(id);
   }
 
   ngOnInit() {

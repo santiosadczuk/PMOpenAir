@@ -9,7 +9,7 @@
   .card {
     width: 100px;
     height: 100%;
-    margin: 25px auto;
+    margin: 20px;
     border: 1px solid #ccc;
     background: white;
 }
@@ -36,5 +36,12 @@
 }
   .card .card-body {
     padding: 0 5px 5px;
+}
+
+@media screen and (min-width:800px ) {
+
+	.card {
+        width: 200px;
+    }
 }
  

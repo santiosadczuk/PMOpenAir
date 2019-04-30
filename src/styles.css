@@ -6,6 +6,91 @@ body{
     cursor: pointer;
 }
 
+table {
+    border: 0;
+    padding-bottom: 0;    
+    color: white;
+  }
+
+thead {
+    display: none;
+  }
+
+audio{
+    width: 300px;
+    height: 25px;
+}
+
+  tbody, tr, th, td {
+    
+    display: block;
+    padding: 0;
+    text-align: center;
+    white-space: normal;
+  }
+
+  tr{
+    border: white 1px solid;
+    margin: 20px;
+    }
+
+    td{
+        padding: 5px;
+    }
+
+  td:empty {
+    display: none;
+  }
+
+  table tbody tr td img {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #ddd;
+}
+
+  @media screen and (min-width:800px ) {
+
+    table{
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+    td:empty {
+        display: table-cell;
+      }
+
+    thead {
+        display: table-header-group;
+        
+      }
+  
+      tbody {
+        display: table-header-group;
+    }
+    
+      tbody, tr, th, td {
+        border: 0;
+        text-align: center;
+        white-space: normal;
+      }
+    
+      th, td {
+        display: table-cell;
+    }
+    
+      tr {
+          display: table-row;
+          border: none;
+         }
+              
+      th, td {
+        border-style: none;
+        text-align: center;
+        min-width: 50px;
+        vertical-align: top;
+      }
+
+}
+
 /* Animaciones */
 
 .animated {
@@ -13,15 +98,6 @@ body{
     animation-duration: 1s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
 }
 
 .fadeIn {

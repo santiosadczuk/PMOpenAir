@@ -1,9 +1,9 @@
 .album-card{
     display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: space-between;
     align-items: center;
-    margin-top: 20px;
+    margin: 20px 20px 0px 20px;
     padding: 5px;
     border: 1px solid #ddd;
     color: white;
@@ -36,11 +36,15 @@
     flex-direction: column;
     align-items: center;
 }
-table{    
-    text-align: center;
+
+h3{
     color: white;
 }
-table tbody tr td audio{
-    width: 300px;
-    height: 25px;
+
+@media screen and (min-width:800px ) {
+    
+    .album-card{
+        flex-direction: row;
+    }
+    
 }

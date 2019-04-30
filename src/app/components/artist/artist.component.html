@@ -20,7 +20,7 @@
     
     <h3>Albums</h3>
   
-      <table class="table">
+    <table class="table">
         
         <thead>
           <tr>
@@ -36,10 +36,10 @@
               <img (click)="lookAlbum( album )" [src]="album.images | noimage" class="puntero">
             </td>
             <td>{{ album.name }}</td>
-            <td>{{ album.total_tracks }}</td>
+            <td>{{ album.total_tracks }} tracks</td>
           </tr>
         </tbody>
   
-      </table>
+    </table>
   
   </div>

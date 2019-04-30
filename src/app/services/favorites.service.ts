@@ -17,10 +17,11 @@ export class FavoritesService {
     this.favorites.push(id);
     localStorage.setItem('favorites', JSON.stringify(this.favorites));
   }
-
+  
   removeFavorite(id: string) {
-    this.favorites = this.favorites.filter((favId) => favId === id);
+    this.favorites = this.favorites.filter((favId) => favId !== id);
     localStorage.setItem('favorites', JSON.stringify(this.favorites));
+    
   }
 
   loadStorage() {

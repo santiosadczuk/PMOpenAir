@@ -18,6 +18,36 @@
     
     <h2>Favorites</h2>
 
+    <table class="table">
+
+      <thead>
+        <tr>
+
+          <td>Nombre</td>
+          <td>Vista Previa</td>
+          <td>Quitar de Favoritos</td>
+
+        </tr>
+      </thead>
+        
+      <tbody>
+          <tr *ngFor='let fav of favs'>
+
+              <td>{{ fav.name }}</td>
+              <td>
+                  <audio [src]="fav.preview_url" controls></audio>
+              </td>
+              <td>
+                <i (click)="removeTrackToFavs( fav.id )"
+                  class="fas fa-trash-alt">
+                </i>                
+              </td>
+    
+            </tr>
+      </tbody>
+
+    </table>
+
   </div>
 
 </div>
