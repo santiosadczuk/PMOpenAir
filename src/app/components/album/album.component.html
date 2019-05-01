@@ -22,7 +22,11 @@
       <thead>
         <tr>
           <th>Cancion</th>
-          <th>Duracion</th>
+          <th>
+            <i class="fas fa-sort-down" (click)="orderBy('down')"></i>
+            <i class="fas fa-sort-up" (click)="orderBy('up')"></i>
+            Duracion
+          </th>
           <th>Vista Previa</th>
           <th>Agregar a Favoritos</th>
         </tr>

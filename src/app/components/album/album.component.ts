@@ -34,8 +34,7 @@ export class AlbumComponent implements OnInit {
 
     this.spotify.getAlbum( id )
       .subscribe( album => {
-      console.log(album);
-      this.album = album;
+        this.album = album;
       
     })
   }
@@ -44,8 +43,7 @@ export class AlbumComponent implements OnInit {
 
     this.spotify.getAlbumTracks( id )
       .subscribe( albumTracks => {
-        console.log(albumTracks);
-      this.albumTracks = albumTracks;
+          this.albumTracks = albumTracks;
       
     })
   }
@@ -59,4 +57,26 @@ export class AlbumComponent implements OnInit {
     
   }
 
+  orderBy = type => {
+    if (type == "down") {
+      this.albumTracks.sort((a, b) => {
+        if (a.duration_ms > b.duration_ms) {
+          return 1;
+        } else if (a.duration_ms < b.duration_ms) {
+          return -1;
+        }
+        return 0;
+      });
+    }
+    if (type == "up") {
+      this.albumTracks.sort((b, a) => {
+        if (a.duration_ms > b.duration_ms) {
+          return 1;
+        } else if (a.duration_ms < b.duration_ms) {
+          return -1;
+        }
+        return 0;
+      });
+    }
+  };
 }
