@@ -8,17 +8,38 @@ import { map } from 'rxjs/operators';
 })
 export class SpotifyService {
 
-  constructor( private http: HttpClient ) {}
+  authToken: any;
+  body = new URLSearchParams({
+    grant_type: "client_credentials"
+  });
+  header = new HttpHeaders({
+    Authorization:
+      "Basic <base64 encoded 050b1e19c2ba427cb0af4e20252b680e:b34482186150439d9d074da60d5ed545>"
+  });
 
-  getQuery( query:string ) {
+  constructor( private http: HttpClient ) {
 
-    const url = `https://api.spotify.com/v1/${ query }`;
+    this.authToken =
+      "BQBZz-U6uGyPmzndhTULlaiEACr-hEeHVpvk4yOhX_THehHnWmpjbNVRb6AGAtbHdwV2Fe4VQpRml0JBoVY";
+  }
 
+  getToken() {
+    this.http
+      .post("https://accounts.spotify.com/api/token", this.body, {
+        headers: this.header
+      })
+      .subscribe(data => {
+        
+        return data;
+      });
+  }
+
+  getQuery(query: string) {
+    const url = `https://api.spotify.com/v1/${query}`;
     const headers = new HttpHeaders({
-      'Authorization': 'Bearer BQBKtsrbVFpFYwflDsIXYcTN-2oD6ZBnxKkaLmk0YLt3ZIPtX2pLKwC7xnYvdqyovrtvgeU02-e6FWywizo'
+      Authorization: "Bearer " + this.authToken
     });
-
-    return this.http.get( url, {headers});
+    return this.http.get(url, { headers });
   }
 
   getArtists(termino: string){
