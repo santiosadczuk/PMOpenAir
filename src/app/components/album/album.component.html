@@ -38,7 +38,7 @@
           <td>
 
             <i 
-              *ngIf="fav.includes( track.id ); else finish"
+              *ngIf="storeService.fav.includes( track.id ); else finish"
               
               class="fas fa-star"
             ></i>

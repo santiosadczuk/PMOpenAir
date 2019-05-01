@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { SpotifyService } from 'src/app/services/spotify.service';
 import { Router } from '@angular/router';
 import { FavoritesService } from 'src/app/services/favorites.service';
+import { StoreService } from 'src/app/services/store.service';
 
 @Component({
   selector: 'app-album',
@@ -12,13 +13,12 @@ import { FavoritesService } from 'src/app/services/favorites.service';
 export class AlbumComponent implements OnInit {
 
   album: any = {};
-  albumTracks: any = {};
-
-  fav: any[] = [];
+  albumTracks: any = {};  
 
   constructor(private router: ActivatedRoute,
               private spotify: SpotifyService,
               private favoritesService: FavoritesService,
+              private storeService: StoreService,
               private _router: Router) {
 
                 this.router.params.subscribe( params => {
@@ -26,7 +26,7 @@ export class AlbumComponent implements OnInit {
                   this.getAlbumTracks( params ['id']);
                 })
                 
-                this.loadStorage();
+                this.storeService.loadStorageAlbum();
                 
               }
 
@@ -34,7 +34,7 @@ export class AlbumComponent implements OnInit {
 
     this.spotify.getAlbum( id )
       .subscribe( album => {
-      
+      console.log(album);
       this.album = album;
       
     })
@@ -44,7 +44,7 @@ export class AlbumComponent implements OnInit {
 
     this.spotify.getAlbumTracks( id )
       .subscribe( albumTracks => {
-
+        console.log(albumTracks);
       this.albumTracks = albumTracks;
       
     })
@@ -52,15 +52,7 @@ export class AlbumComponent implements OnInit {
 
   addTrackToFavs( id: string){    
     this.favoritesService.addFavorite(id);
-    this.fav.push(id);
-  }
-
-  loadStorage() {
-    if (localStorage.getItem('favorites')) {
-      this.fav = JSON.parse(localStorage.getItem('favorites'));
-    } else {
-      this.fav = [];
-    }
+    this.storeService.fav.push(id);
   }
 
   ngOnInit() {

@@ -5,6 +5,7 @@ import { FavoritesService } from 'src/app/services/favorites.service';
 
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { StoreService } from 'src/app/services/store.service';
 
 
 @Component({
@@ -20,6 +21,7 @@ export class SearchComponent implements OnInit {
 
   constructor(private spotify: SpotifyService,
               private favoritesService: FavoritesService,
+              private storeService: StoreService,
               private router: ActivatedRoute,) {
                 
                 this.router.params.subscribe( params => {
@@ -30,7 +32,7 @@ export class SearchComponent implements OnInit {
   getTrack( ids: string){
 
     
-    this.spotify.getTracks(this.favoritesService.favorites)
+    this.spotify.getTracks(this.storeService.favorites)
       .subscribe( track => {
         
         this.favs = track;        

@@ -1,35 +1,28 @@
 import { Injectable } from '@angular/core';
+import { StoreService } from './store.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FavoritesService {
 
-  favorites: any[] = [];
+  
 
-  constructor() { 
+  constructor(private storeService:StoreService) { 
 
-    this.loadStorage();
+    this.storeService.loadStorageHome();
 
   }
 
   addFavorite(id: string){
-    this.favorites.push(id);
-    localStorage.setItem('favorites', JSON.stringify(this.favorites));
+    this.storeService.favorites.push(id);
+    localStorage.setItem('favorites', JSON.stringify(this.storeService.favorites));
   }
   
   removeFavorite(id: string) {
-    this.favorites = this.favorites.filter((favId) => favId !== id);
-    localStorage.setItem('favorites', JSON.stringify(this.favorites));
+    this.storeService.favorites = this.storeService.favorites.filter((favId) => favId !== id);
+    localStorage.setItem('favorites', JSON.stringify(this.storeService.favorites));
     
-  }
-
-  loadStorage() {
-    if (localStorage.getItem('favorites')) {
-      this.favorites = JSON.parse(localStorage.getItem('favorites'));
-    } else {
-      this.favorites = [];
-    }
   }
 
 }

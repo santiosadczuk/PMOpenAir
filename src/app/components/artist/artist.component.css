@@ -36,6 +36,13 @@ h3{
     text-align: center;
 }
 
+.albums{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
 @media screen and (min-width:800px ) {
     
     .artist-card{
