@@ -40,7 +40,7 @@ export class HeaderComponent implements OnInit {
       .subscribe( (data: any) =>{
         this.artists = data;
         this.loading= false;
-        console.log(data);
+        
       })
     
   }
