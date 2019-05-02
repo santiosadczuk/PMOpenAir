@@ -23,6 +23,17 @@
     text-align: center;
 }
 
+.alert{
+    display: flex;
+    flex-direction: column;    
+    text-align: center;
+    color: white;
+    background: #E50914;
+    margin: 0 auto;
+    padding: 5px 25px;
+    border: white 1px solid;
+}
+
 .favorites{
     display: flex;
     flex-direction: column;

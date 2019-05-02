@@ -18,12 +18,16 @@ export class SearchComponent implements OnInit {
   favs: any[] = [];
   artists: any[] = [];
   loading: boolean;
+  error: boolean;
+  mensajeError: string;
 
   constructor(private spotify: SpotifyService,
               private favoritesService: FavoritesService,
               private storeService: StoreService,
               private router: ActivatedRoute,) {
                 
+                this.error = false;
+
                 this.router.params.subscribe( params => {
                   this.getTrack( params ['ids']);
                   })
@@ -46,6 +50,10 @@ export class SearchComponent implements OnInit {
       .subscribe( (data: any) =>{
         this.artists = data;
         this.loading= false;
+      } , ( errorService ) => {
+        this.error = true;
+        this.loading= false;
+        this.mensajeError = errorService.error.error.message;
       })
     
   }
