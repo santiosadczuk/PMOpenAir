@@ -12,11 +12,6 @@
 
   <app-loading *ngIf="loading"></app-loading>
 
-  <div *ngIf="error" class="alert">
-    <h3>Error</h3>
-    <p>{{ mensajeError }}</p>
-  </div>
-
   <app-card *ngIf="!loading" [items]="artists"></app-card>
 
   <div class="favorites">
