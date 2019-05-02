@@ -23,8 +23,8 @@
         <tr>
           <th>Cancion</th>
           <th>
-            <i class="fas fa-sort-down" (click)="orderBy('down')"></i>
-            <i class="fas fa-sort-up" (click)="orderBy('up')"></i>
+            <i class="fas fa-sort-down puntero" (click)="orderBy('down')"></i>
+            <i class="fas fa-sort-up puntero" (click)="orderBy('up')"></i>
             Duracion
           </th>
           <th>Vista Previa</th>
@@ -47,7 +47,7 @@
               class="fas fa-star"
             ></i>
             <ng-template #finish>
-                <i (click)="addTrackToFavs( track.id )" class="far fa-star"></i>
+                <i (click)="addTrackToFavs( track.id )" class="far fa-star puntero"></i>
             </ng-template>
             
           </td>
