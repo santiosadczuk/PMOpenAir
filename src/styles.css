@@ -13,8 +13,8 @@ table {
   }
 
 thead {
-    display: none;
-  }
+  display: none;
+}
 
 audio{
     width: 300px;

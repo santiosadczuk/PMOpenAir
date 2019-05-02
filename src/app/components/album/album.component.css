@@ -46,5 +46,9 @@ h3{
     .album-card{
         flex-direction: row;
     }
+
+    .orderBy{
+        display: none;
+    }
     
 }
