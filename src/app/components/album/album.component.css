@@ -47,7 +47,7 @@ h3{
         flex-direction: row;
     }
 
-    .orderBy{
+    h3 i{
         display: none;
     }
     

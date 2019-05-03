@@ -16,14 +16,16 @@
 
 <div class="album">
   
-  <h3>Tracks</h3>
+  <div>
+    <h3>
+      Tracks
+      <i class="fas fa-sort-down puntero" (click)="orderBy('down')"></i>
+      <i class="fas fa-sort-up puntero" (click)="orderBy('up')"></i>
+    </h3>
+  </div>
+  
   <table class="table">
       
-      <th class="orderBy">
-        <i class="fas fa-sort-down puntero" (click)="orderBy('down')"></i>
-        <i class="fas fa-sort-up puntero" (click)="orderBy('up')"></i>
-        Ordenar
-      </th>
       <thead>
         <tr>
           <th>Cancion</th>
